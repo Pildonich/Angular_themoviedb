@@ -1,0 +1,23 @@
+.list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.list__item {
+    margin-right: 5px;
+    margin-bottom: 5px;
+    width: 300px;
+}
+
+.card__header {
+    min-height: 100px;
+}
+
+mat-card-actions {
+    display: flex;
+    justify-content: space-around;
+}

@@ -1,0 +1,53 @@
+<mat-card class="card">
+    <mat-card-header class="card__header">
+      <mat-card-title>{{movie$.title}}
+          <button mat-flat-button color="primary" routerLink="favorites">В избранное</button>
+      </mat-card-title>
+      <mat-card-subtitle >Жанр:
+        <span *ngFor="let genre of movie$.genres">{{genre.name}}
+        </span> 
+      </mat-card-subtitle>
+    </mat-card-header>
+    <div class="card__wrapper">
+      <div class="card__img">
+          <img mat-card-image src="https://image.tmdb.org/t/p/w500/{{movie$.poster_path}}" width="332px" height="498px" alt="{{movie$.title}}">
+      </div>
+      <mat-card-content>
+        <p class="card__text">
+          {{movie$.overview}}
+        </p>
+      </mat-card-content>
+    </div>
+</mat-card>
+<h1 class="title">Рекомендованные фильмы</h1>
+<ul class="list">
+  <li class="list__item item" *ngFor="let movies of recommendations$?.results">
+    <mat-card class="item__card card">
+      <mat-card-header class="card__header">
+        <mat-card-title>{{movies.title}}</mat-card-title>
+        <mat-card-subtitle>Жанр: {{movies.genre_ids}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="https://image.tmdb.org/t/p/w500/{{movies.poster_path}}" width="332px" height="498px" alt="{{movies.title}}">
+      <mat-card-actions class="card__actions">
+        <button mat-flat-button color="primary" routerLink="/details/{{movies.id}}">Подробнее</button>
+        <button mat-flat-button color="primary" routerLink="favorites">В избранное</button>
+      </mat-card-actions>
+    </mat-card>
+  </li>
+</ul>
+<h1 class="title">Похожие фильмы</h1>
+<ul class="list">
+  <li class="list__item item" *ngFor="let movies of similar$?.results">
+    <mat-card class="item__card card">
+      <mat-card-header class="card__header">
+        <mat-card-title>{{movies.title}}</mat-card-title>
+        <mat-card-subtitle>Жанр: {{movies.genre_ids}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="https://image.tmdb.org/t/p/w500/{{movies.poster_path}}" width="332px" height="498px" alt="{{movies.title}}">
+      <mat-card-actions class="card__actions">
+        <button mat-flat-button color="primary" routerLink="/details/{{movies.id}}">Подробнее</button>
+        <button mat-flat-button color="primary" routerLink="favorites">В избранное</button>
+      </mat-card-actions>
+    </mat-card>
+  </li>
+</ul>

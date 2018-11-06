@@ -1,0 +1,16 @@
+<h1 class="title">Популярные фильмы</h1>
+<ul class="list">
+  <li class="list__item item" *ngFor="let movies of movies$?.results">
+    <mat-card class="item__card card">
+      <mat-card-header class="card__header">
+        <mat-card-title>{{movies.title}}</mat-card-title>
+        <mat-card-subtitle>Жанр: {{movies.genre_ids}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="https://image.tmdb.org/t/p/w500/{{movies.poster_path}}" width="332px" height="498px" alt="{{movies.title}}">
+      <mat-card-actions class="card__actions">
+        <button mat-flat-button color="primary" routerLink="/details/{{movies.id}}">Подробнее</button>
+        <button mat-flat-button color="primary" routerLink="favorites">В избранное</button>
+      </mat-card-actions>
+    </mat-card>
+  </li>
+</ul>
